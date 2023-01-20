@@ -12,7 +12,7 @@ const x_valid = () => {
 }
 
 const y_valid = () => {
-    let y_coord = parseFloat($("input[name='Ycoord']").val());
+    let y_coord = parseFloat($("input[name='Ycoord']").val().replace(',', '.'));
     if (y_coord == null || isNaN(y_coord) || y_coord <= -3 || y_coord >= 5) {
         // alert("координата Y введена некорректно");
         return false;
@@ -34,7 +34,7 @@ const r_valid = () => {
 }
 
 $("#y_coord").on("input", (event) => {
-    y_coord = event.target.value;
+    y_coord = event.target.value.replace(',', '.');
     if (y_coord == null || isNaN(y_coord) || y_coord <= -3 || y_coord >= 5)
         event.target.setCustomValidity("Enter the number between -3 and 5");
     else
@@ -72,7 +72,7 @@ $("form[name='form']").on("submit", () => {
     if (ok) {
         data = {
             x: $("input[name='Xchange']:checked").val(),
-            y: $("input[name='Ycoord']").val(),
+            y: $("input[name='Ycoord']").val().replace(',', '.'),
             r: $("input[name='Rchange']:checked").val()
         }
         request(data);

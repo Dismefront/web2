@@ -75,7 +75,7 @@
         res += "]";
         return res;
     }
-%>>
+%>
 
 <table name="result">
     <tr>

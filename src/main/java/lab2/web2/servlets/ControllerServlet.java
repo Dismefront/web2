@@ -28,7 +28,6 @@ public class ControllerServlet extends HttpServlet {
             throws ServletException, IOException {
 
         long startTime = System.nanoTime();
-
         resp.setContentType("application/json");
 
         //validation logic

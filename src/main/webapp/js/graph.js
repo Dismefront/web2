@@ -39,8 +39,13 @@ function initBoard() {
         c1 = coords.usrCoords[1].toFixed(3);
         c2 = coords.usrCoords[2].toFixed(3);
 
-        if (c1 < -5 || c1 > 3 || c2 <= -3 || c2 >= 5)
+        if (c1 < -5 || c1 > 3 || c2 <= -3 || c2 >= 5) {
+            if ($("#bounds_error").length === 0)
+                $("#board").after("<p id='bounds_error' style='color: red'>out of bounds</p>");
             return;
+        }
+        else
+            $("#bounds_error").remove();
 
         request({
             x: c1,
